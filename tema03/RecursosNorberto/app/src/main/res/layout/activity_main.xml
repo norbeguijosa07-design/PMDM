@@ -22,8 +22,6 @@
     <Button
         android:id="@+id/button"
         style="@style/BotonTarea"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="@string/continuar"
         app:backgroundTint="@color/verde"
         tools:ignore="MissingConstraints"
@@ -37,8 +35,6 @@
     <Button
         android:id="@+id/button2"
         style="@style/BotonTarea"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="@string/cancelar"
         app:backgroundTint="@color/rojo"
         tools:ignore="MissingConstraints"
