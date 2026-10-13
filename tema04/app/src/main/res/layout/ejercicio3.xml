@@ -10,7 +10,7 @@
 
     <TextView
         android:id="@+id/pantalla"
-        android:layout_height="230dp"
+        android:layout_height="160dp"
         android:layout_width="0dp"
         android:background="@color/grisClaro"
         android:text="@string/mi_nombre"
