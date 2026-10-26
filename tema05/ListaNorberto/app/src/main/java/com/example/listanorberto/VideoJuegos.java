@@ -3,9 +3,9 @@ package com.example.listanorberto;
 public class VideoJuegos {private String titulo;
     private String plataforma;
     private int imagen; // el recurso de la imagen: R.drawable.algo
-    public VideoJuegos(String titulo, String anio, int imagen) {
+    public VideoJuegos(String titulo, String plataforma, int imagen) {
         this.titulo = titulo;
-        this.plataforma = anio;
+        this.plataforma = plataforma;
         this.imagen = imagen;
     }
     public String getTitulo() {
