@@ -42,7 +42,11 @@ public class MainActivity extends AppCompatActivity {
             String contrasenia = tContrasenia.getText().toString();
             Boolean recordar = sRecordar.isChecked();
 
-            if (correo.equals("norberto@correo.com")&& contrasenia.equals("1234")){
+            if (correo.isEmpty()){
+                tCorreo.setError("Escribe tu correo");
+            } else if (contrasenia.isEmpty()) {
+                tContrasenia.setError("Escribe la contraseña");
+            }else if (correo.equals("norberto@correo.com")&& contrasenia.equals("1234")){
                 tvMensaje.setTextColor(Color.GREEN);
                 if (recordar){
                     tvMensaje.setText("Usuario y contraseña correctos. Almacenados para siguientes accesos");
