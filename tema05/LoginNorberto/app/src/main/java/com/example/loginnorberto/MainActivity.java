@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private Button bContinuar;
     private TextView tvMensaje;
     private Switch sRecordar;
-
+    int contador = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
             } else if (contrasenia.isEmpty()) {
                 tContrasenia.setError("Escribe la contraseña");
             }else if (correo.equals("norberto@correo.com")&& contrasenia.equals("1234")){
+                contador = 0;
                 tvMensaje.setTextColor(Color.GREEN);
                 if (recordar){
                     tvMensaje.setText("Usuario y contraseña correctos. Almacenados para siguientes accesos");
@@ -55,7 +57,17 @@ public class MainActivity extends AppCompatActivity {
                 }
             }else{
                 tvMensaje.setTextColor(Color.RED);
-                tvMensaje.setText("Usuario y/o contraseña incorrectos");
+                contador ++;
+                if (contador == 3){
+                    bContinuar.setEnabled(false);
+                    Toast.makeText(this,"Demasiados intentos",Toast.LENGTH_SHORT).show();
+                    tvMensaje.setText("Demasiados intentos");
+                }else {
+                    tvMensaje.setText("Usuario y/o contraseña incorrectos. Quedan: " + (3-contador) + " intentos");
+                }
+
+
+
             }
         });
     }
