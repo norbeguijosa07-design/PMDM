@@ -25,8 +25,7 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        // … lo que trae la plantilla (EdgeToEdge, setContentView…): no lo borres
-        // 1. Los datos: al menos 8 elementos
+
         ArrayList<VideoJuegos> videojuegos = new ArrayList<>();
         videojuegos.add(new VideoJuegos("Guild Wars 2", "PC", R.drawable.gw2));
         videojuegos.add(new VideoJuegos("Red Dead Redemption 2", "PlayStation 4", R.drawable.rdr2));
@@ -37,8 +36,6 @@ public class MainActivity extends AppCompatActivity {
         videojuegos.add(new VideoJuegos("Minecraft", "PC", R.drawable.minecraft));
         videojuegos.add(new VideoJuegos("Osu!", "PC", R.drawable.osu));
         videojuegos.add(new VideoJuegos("Among Us", "Multiplataforma", R.drawable.amongus));
-        // … y así hasta 8 o más
-        // 2. La lista: cómo se colocan las filas y quién las pinta
         RecyclerView rvLista = findViewById(R.id.rvLista);
         rvLista.setLayoutManager(new LinearLayoutManager(this));
         rvLista.setLayoutManager(new LinearLayoutManager(this));

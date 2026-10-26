@@ -44,7 +44,7 @@ public class AdaptadorVideojuegos extends RecyclerView.Adapter<AdaptadorVideojue
         return videojuego.size();
     }
 
-    // El ViewHolder guarda las vistas de UNA fila
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView ivImagen;
         TextView tvTitulo;
