@@ -4,7 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Switch;
+import com.google.android.material.materialswitch.MaterialSwitch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText tContrasenia;
     private Button bContinuar;
     private TextView tvMensaje;
-    private Switch sRecordar;
+    private MaterialSwitch sRecordar;
     int contador = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
