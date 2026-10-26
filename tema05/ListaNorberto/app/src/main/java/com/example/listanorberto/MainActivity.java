@@ -38,10 +38,8 @@ public class MainActivity extends AppCompatActivity {
         videojuegos.add(new VideoJuegos("Among Us", "Multiplataforma", R.drawable.amongus));
         RecyclerView rvLista = findViewById(R.id.rvLista);
         rvLista.setLayoutManager(new LinearLayoutManager(this));
-        rvLista.setLayoutManager(new LinearLayoutManager(this));
         rvLista.addItemDecoration(
                 new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
-        rvLista.setAdapter(new AdaptadorVideojuegos(videojuegos));
         rvLista.setAdapter(new AdaptadorVideojuegos(videojuegos));
     }
 
