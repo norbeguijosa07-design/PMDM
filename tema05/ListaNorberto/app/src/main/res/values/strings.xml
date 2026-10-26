@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ListaNorberto</string>
+    <string name="imagen_elemento">Imagen del videojuego</string>
+    <string name="cabecera">Mis Videojuegos Norberto Guijosa</string>
+</resources>
