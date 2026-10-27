@@ -51,12 +51,6 @@ public class MainActivity extends AppCompatActivity {
             }else if (correo.equals("norberto@correo.com")&& contrasenia.equals("1234")){
                 contador = 0;
                 tvMensaje.setTextColor(Color.GREEN);
-                if (recordar){
-                    tvMensaje.setText("Usuario y contraseña correctos. Almacenados para siguientes accesos");
-
-                }else {
-                    tvMensaje.setText("Usuario y contraseña correctos");
-                }
                 Intent intent = new Intent(this, MenuActivity.class);
                 intent.putExtra(MenuActivity.EXTRA_CORREO, correo);
                 startActivity(intent);
@@ -71,9 +65,6 @@ public class MainActivity extends AppCompatActivity {
                 }else {
                     tvMensaje.setText("Usuario y/o contraseña incorrectos. Quedan: " + (3-contador) + " intentos");
                 }
-
-
-
             }
         });
     }

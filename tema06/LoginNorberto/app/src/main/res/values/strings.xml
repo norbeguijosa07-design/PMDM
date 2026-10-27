@@ -4,6 +4,6 @@
     <string name="correo_electronico">Correo electrónico</string>
     <string name="continuar">Continuar</string>
     <string name="recordar_contrasenia">Recordar contraseña</string>
-    <string name="saludo_correo">Hola, norberto@correo.com</string>
+    <string name="saludo_correo">Hola, usuario</string>
     <string name="cerrar_sesion">Cerrar sesión</string>
 </resources>
