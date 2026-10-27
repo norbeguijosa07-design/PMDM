@@ -1,6 +1,7 @@
 package com.example.loginnorberto;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
@@ -23,8 +24,12 @@ public class MainActivity extends AppCompatActivity {
     private TextView tvMensaje;
     private MaterialSwitch sRecordar;
     int contador = 0;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
@@ -39,6 +44,15 @@ public class MainActivity extends AppCompatActivity {
         sRecordar = findViewById(R.id.sRecordar);
         tvMensaje = findViewById(R.id.tvMensaje);
 
+        SharedPreferences prefs = getSharedPreferences("datos", MODE_PRIVATE);
+
+        String correoRecordado = prefs.getString("correo", "");
+
+        if (!correoRecordado.isEmpty()) {
+            tCorreo.setText(correoRecordado);
+            sRecordar.setChecked(true);
+        }
+
         bContinuar.setOnClickListener(v ->{
             String correo = tCorreo.getText().toString();
             String contrasenia = tContrasenia.getText().toString();
@@ -50,6 +64,11 @@ public class MainActivity extends AppCompatActivity {
                 tContrasenia.setError("Escribe la contraseña");
             }else if (correo.equals("norberto@correo.com")&& contrasenia.equals("1234")){
                 contador = 0;
+                if(recordar){
+                    prefs.edit().putString("correo", correo).apply();
+                }else {
+                    prefs.edit().remove("correo").apply();
+                }
                 tvMensaje.setTextColor(Color.GREEN);
                 Intent intent = new Intent(this, MenuActivity.class);
                 intent.putExtra(MenuActivity.EXTRA_CORREO, correo);
