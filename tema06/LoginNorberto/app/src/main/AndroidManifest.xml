@@ -24,6 +24,7 @@
         <activity
             android:name=".MenuActivity"
             android:exported="false"
+            android:label="@string/titulo_menu_principal"
             android:windowSoftInputMode="adjustResize" />
     </application>
 

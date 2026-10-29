@@ -4,7 +4,7 @@
     <string name="correo_electronico">Correo electrónico</string>
     <string name="continuar">Continuar</string>
     <string name="recordar_correo">Recordar correo</string>
-    <string name="saludo_correo">Hola, usuario</string>
+    <string name="saludo_correo">Hola, %1$s</string>
     <string name="cerrar_sesion">Cerrar sesión</string>
     <string name="titulo_menu_principal">Menú principal</string>
 </resources>

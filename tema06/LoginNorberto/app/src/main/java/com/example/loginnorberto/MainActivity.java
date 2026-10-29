@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         if (!correoRecordado.isEmpty()) {
             tCorreo.setText(correoRecordado);
             sRecordar.setChecked(true);
+            tContrasenia.requestFocus();
         }
 
         bContinuar.setOnClickListener(v ->{
@@ -69,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
                 }else {
                     prefs.edit().remove("correo").apply();
                 }
-                tvMensaje.setTextColor(Color.GREEN);
                 Intent intent = new Intent(this, MenuActivity.class);
                 intent.putExtra(MenuActivity.EXTRA_CORREO, correo);
                 startActivity(intent);

@@ -29,7 +29,7 @@ public class MenuActivity extends AppCompatActivity {
         String correo = getIntent().getStringExtra(EXTRA_CORREO);
         btCerrarSesion = findViewById(R.id.cerrarSesion);
         tvSaludoUsuario = findViewById(R.id.saludoUsuario);
-        tvSaludoUsuario.setText("Hola, "+ correo);
+        tvSaludoUsuario.setText(getString(R.string.saludo_correo, correo));
 
         btCerrarSesion.setOnClickListener(v ->{
             Intent intent = new Intent(this, MainActivity.class);
