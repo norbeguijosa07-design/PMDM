@@ -96,10 +96,26 @@ public class MainActivity extends AppCompatActivity {
 
         btnPlay.setOnClickListener(v -> exoPlayer.play());
         btnPausa.setOnClickListener(v -> exoPlayer.pause());
-        handler.post(actualizar);
+
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        handler.post(actualizar);
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        handler.removeCallbacks(actualizar);
+        exoPlayer.pause();
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        exoPlayer.release();
+    }
     private String formatear(long ms) {
         long segundos = ms / 1000;
         return String.format(Locale.getDefault(),
