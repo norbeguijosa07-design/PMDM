@@ -73,25 +73,25 @@
         app:layout_constraintTop_toBottomOf="@+id/seekBar" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonPlay"
         android:layout_width="70dp"
         android:layout_height="76dp"
         android:layout_marginTop="44dp"
         android:text="@string/signo_play"
         android:textSize="30sp"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintEnd_toStartOf="@+id/buttonPause"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/seekBar" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonPause"
         android:layout_width="70dp"
         android:layout_height="76dp"
         android:layout_marginStart="32dp"
         android:text="@string/signo_pausar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button"
-        app:layout_constraintTop_toTopOf="@+id/button" />
+        app:layout_constraintStart_toEndOf="@+id/buttonPlay"
+        app:layout_constraintTop_toTopOf="@+id/buttonPlay" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

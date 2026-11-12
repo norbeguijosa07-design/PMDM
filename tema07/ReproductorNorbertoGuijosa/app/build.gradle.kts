@@ -4,9 +4,7 @@ plugins {
 
 android {
     namespace = "com.example.reproductornorbertoguijosa"
-    compileSdk {
-        version = release(37)
-    }
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "com.example.reproductornorbertoguijosa"
@@ -40,4 +38,5 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(libs.ext.junit)
+    implementation(libs.media3.exoplayer)
 }
