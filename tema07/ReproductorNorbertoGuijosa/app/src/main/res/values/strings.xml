@@ -2,8 +2,8 @@
     <string name="app_name">ReproductorNorbertoGuijosa</string>
     <string name="titulo_app">Reproductor de Norberto</string>
     <string name="inicio_temporizador">00:00</string>
-    <string name="titulo_cancion">Título canción</string>
-    <string name="autor">autor</string>
+    <string name="titulo_cancion">MI VIDA</string>
+    <string name="autor">Natos y Waor, Recycled J, Morad</string>
     <string name="duracion_cancion">00:00</string>
     <string name="signo_play">▶︎</string>
     <string name="signo_pausar">❚❚</string>
