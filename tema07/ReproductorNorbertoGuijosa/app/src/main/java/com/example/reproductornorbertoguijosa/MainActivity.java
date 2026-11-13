@@ -1,6 +1,8 @@
 package com.example.reproductornorbertoguijosa;
 
+import android.media.AudioAttributes;
 import android.media.MediaPlayer;
+import android.media.SoundPool;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -35,6 +37,13 @@ public class MainActivity extends AppCompatActivity {
     private TextView tvActual;
     private boolean arrastrando;
 
+    private SoundPool soundPool;
+    private Button btnTeleport;
+    private Button btnFood;
+    private Button btnLevelUp;
+    private Button btnVillager;
+    private int cargados = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,11 +62,47 @@ public class MainActivity extends AppCompatActivity {
         sb = findViewById(R.id.seekBar);
         tvDuracionTotal = findViewById(R.id.textViewDuracionTotal);
         tvActual = findViewById(R.id.textViewTiempo);
+        btnTeleport = findViewById(R.id.buttonTeleport);
+        btnFood = findViewById(R.id.buttonFood);
+        btnLevelUp = findViewById(R.id.buttonLevelUp);
+        btnVillager = findViewById(R.id.buttonVillager);
 
         exoPlayer = new ExoPlayer.Builder(this).build();
         Uri uri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.musica);
         exoPlayer.setMediaItem(MediaItem.fromUri(uri));
         exoPlayer.prepare();
+
+        AudioAttributes atributos = new AudioAttributes.Builder()
+                .setUsage(AudioAttributes.USAGE_GAME)
+                .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                .build();
+
+        soundPool = new SoundPool.Builder()
+                .setMaxStreams(4)
+                .setAudioAttributes(atributos)
+                .build();
+
+        int idEfecto1Teleport = soundPool.load(this, R.raw.teleport, 1);
+        int idEfecto2Food = soundPool.load(this, R.raw.food, 2);
+        int idEfecto3LevelUp = soundPool.load(this, R.raw.level_up, 3);
+        int idEfecto4Villager = soundPool.load(this, R.raw.villager, 4);
+
+        soundPool.setOnLoadCompleteListener((pool, idSonido, estado) -> {
+            if (estado == 0) {
+                cargados++;
+                if (cargados == 4) {
+                    btnTeleport.setEnabled(true);
+                    btnFood.setEnabled(true);
+                    btnLevelUp.setEnabled(true);
+                    btnVillager.setEnabled(true);
+                }
+            }
+        });
+
+        btnTeleport.setOnClickListener(v -> soundPool.play(idEfecto1Teleport, 1f, 1f, 1, 0, 1f));
+        btnFood.setOnClickListener(v -> soundPool.play(idEfecto2Food, 1f, 1f, 1, 0, 1f));
+        btnLevelUp.setOnClickListener(v -> soundPool.play(idEfecto3LevelUp, 1f, 1f, 1, 0, 1f));
+        btnVillager.setOnClickListener(v -> soundPool.play(idEfecto4Villager, 1f, 1f, 1, 0, 1f));
 
         exoPlayer.addListener(new Player.Listener() {
             @Override
@@ -115,6 +160,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         exoPlayer.release();
+        soundPool.release();
     }
     private String formatear(long ms) {
         long segundos = ms / 1000;

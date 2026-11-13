@@ -7,4 +7,9 @@
     <string name="duracion_cancion">00:00</string>
     <string name="signo_play">▶︎</string>
     <string name="signo_pausar">❚❚</string>
+    <string name="titulo_efectos_de_sonido">Efectos de sonido</string>
+    <string name="efecto1">Teleport</string>
+    <string name="efecto2">Food</string>
+    <string name="efecto3">Villager</string>
+    <string name="efecto4">Level Up</string>
 </resources>
