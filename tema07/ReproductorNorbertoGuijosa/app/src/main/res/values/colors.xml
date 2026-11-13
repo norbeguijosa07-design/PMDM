@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="background">#1D1D1F</color>
+    <color name="toolbarcolor">#131314</color>
+    <color name="subtitulos">#67676E</color>
+    <color name="titulos">#B3B3BD</color>
+    <color name="morado_suave">#B39DDB</color>
+</resources>
