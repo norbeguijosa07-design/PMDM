@@ -98,10 +98,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnTeleport.setOnClickListener(v -> soundPool.play(idEfecto1Teleport, 1f, 1f, 1, 0, 1f));
-        btnFood.setOnClickListener(v -> soundPool.play(idEfecto2Food, 1f, 1f, 1, 0, 1f));
-        btnLevelUp.setOnClickListener(v -> soundPool.play(idEfecto3LevelUp, 1f, 1f, 1, 0, 1f));
-        btnVillager.setOnClickListener(v -> soundPool.play(idEfecto4Villager, 1f, 1f, 1, 0, 1f));
+        btnTeleport.setOnClickListener(v -> soundPool.play(idEfecto1Teleport,
+                1f, 1f, 1, 0, 1f));
+        btnFood.setOnClickListener(v -> soundPool.play(idEfecto2Food, 1f,
+                1f, 1, 0, 1f));
+        btnLevelUp.setOnClickListener(v -> soundPool.play(idEfecto3LevelUp,
+                1f, 1f, 1, 0, 1f));
+        btnVillager.setOnClickListener(v -> soundPool.play(idEfecto4Villager,
+                1f, 1f, 1, 0, 1f));
 
         exoPlayer.addListener(new Player.Listener() {
             @Override
@@ -111,12 +115,8 @@ public class MainActivity extends AppCompatActivity {
                     long duracion = exoPlayer.getDuration();
                     sb.setMax((int)duracion);
                     tvDuracionTotal.setText(formatear(duracion));
+                }
 
-                }
-                if (estado == Player.STATE_ENDED) {
-                    exoPlayer.seekTo(0);
-                    exoPlayer.play();
-                }
             }
         });
 
@@ -138,7 +138,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnPlay.setOnClickListener(v -> exoPlayer.play());
+        btnPlay.setOnClickListener(v -> {
+            if (exoPlayer.getPlaybackState() == Player.STATE_ENDED) {
+                exoPlayer.seekTo(0);
+            }
+            exoPlayer.play();
+
+        });
         btnPausa.setOnClickListener(v -> exoPlayer.pause());
 
     }
