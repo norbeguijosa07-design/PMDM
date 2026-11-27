@@ -1,6 +1,5 @@
 <?php
-// MODELO: cambia la tabla y las columnas por las de tu tema
-// GET listar.php → todas las películas en JSON
+// GET listar.php → todos los videojuegos en JSON.
 require_once __DIR__ . '/datos/ConexionBD.php';
 
 header('Content-Type: application/json; charset=utf-8');
