@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "titulo": "Guild Wars 2",
+    "plataforma": "PC",
+    "imagen": "https://upload.wikimedia.org/wikipedia/en/9/96/Gw2-boxfront.png"
+  },
+  {
+    "id": 2,
+    "titulo": "Red Dead Redemption 2",
+    "plataforma": "PlayStation 4",
+    "imagen": "https://upload.wikimedia.org/wikipedia/en/4/44/Red_Dead_Redemption_II.jpg"
+  },
+  {
+    "id": 3,
+    "titulo": "Crash Bandicoot",
+    "plataforma": "PlayStation 1",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/2/22/Crash_bandicoot_logo.png"
+  },
+  {
+    "id": 4,
+    "titulo": "Spyro the Dragon",
+    "plataforma": "PlayStation 1",
+    "imagen": "https://upload.wikimedia.org/wikipedia/en/1/1f/Spyro_Logo_2026.png"
+  },
+  {
+    "id": 5,
+    "titulo": "Destiny 2",
+    "plataforma": "PC, PlayStation 4",
+    "imagen": "https://upload.wikimedia.org/wikipedia/en/0/05/Destiny_2_%28artwork%29.jpg"
+  },
+  {
+    "id": 6,
+    "titulo": "Grand Theft Auto VI",
+    "plataforma": "PlayStation 5",
+    "imagen": "https://upload.wikimedia.org/wikipedia/en/4/46/Grand_Theft_Auto_VI.png"
+  },
+  {
+    "id": 7,
+    "titulo": "Minecraft",
+    "plataforma": "PC",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/8/84/Minecraft_Logo_%28higher_quality%29.png"
+  },
+  {
+    "id": 8,
+    "titulo": "Osu!",
+    "plataforma": "PC",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/2/29/Osu%21_logo_2024.png"
+  },
+  {
+    "id": 9,
+    "titulo": "Among Us",
+    "plataforma": "Multiplataforma",
+    "imagen": "https://upload.wikimedia.org/wikipedia/en/9/9a/Among_Us_cover_art.jpg"
+  }
+]
