@@ -1,6 +1,8 @@
 package com.example.listanorberto;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,9 +13,19 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,20 +39,34 @@ public class MainActivity extends AppCompatActivity {
         });
 
         ArrayList<VideoJuegos> videojuegos = new ArrayList<>();
-        videojuegos.add(new VideoJuegos("Guild Wars 2", "PC", R.drawable.gw2));
-        videojuegos.add(new VideoJuegos("Red Dead Redemption 2", "PlayStation 4", R.drawable.rdr2));
-        videojuegos.add(new VideoJuegos("Crash Bandicoot", "PlayStation 1", R.drawable.crashbandicoot));
-        videojuegos.add(new VideoJuegos("Spyro the Dragon", "PlayStation 1", R.drawable.spyro));
-        videojuegos.add(new VideoJuegos("Destiny 2", "PC, PlayStation 4", R.drawable.destiny));
-        videojuegos.add(new VideoJuegos("Grand Theft Auto VI", "PlayStation 5", R.drawable.gta));
-        videojuegos.add(new VideoJuegos("Minecraft", "PC", R.drawable.minecraft));
-        videojuegos.add(new VideoJuegos("Osu!", "PC", R.drawable.osu));
-        videojuegos.add(new VideoJuegos("Among Us", "Multiplataforma", R.drawable.amongus));
+        try {
+            JSONArray array = new JSONArray(leerRaw(R.raw.datos));
+            for (int i = 0; i < array.length(); i++) {
+                JSONObject objeto = array.getJSONObject(i);
+                videojuegos.add(new VideoJuegos(objeto.getString("titulo"), objeto.getString("plataforma"), objeto.getString("imagen")));
+            }
+        } catch (IOException | JSONException e) {
+            Log.e(TAG, "Error al leer datos.json", e);
+            Toast.makeText(this, R.string.error_json, Toast.LENGTH_LONG).show();
+        }
         RecyclerView rvLista = findViewById(R.id.rvLista);
         rvLista.setLayoutManager(new LinearLayoutManager(this));
         rvLista.addItemDecoration(
                 new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         rvLista.setAdapter(new AdaptadorVideojuegos(videojuegos));
+
+    }
+    private String leerRaw(int idRecurso) throws IOException {
+        try (InputStream entrada = getResources().openRawResource(idRecurso);
+             BufferedReader lector = new BufferedReader(
+                     new InputStreamReader(entrada, StandardCharsets.UTF_8))) {
+            StringBuilder texto = new StringBuilder();
+            String linea;
+            while ((linea = lector.readLine()) != null) {
+                texto.append(linea).append('\n');
+            }
+            return texto.toString();
+        }
     }
 
 }

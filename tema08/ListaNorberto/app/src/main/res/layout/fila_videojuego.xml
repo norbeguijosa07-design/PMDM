@@ -11,7 +11,7 @@
         android:layout_width="72dp"
         android:layout_height="72dp"
         android:contentDescription="@string/imagen_elemento"
-        android:scaleType="centerCrop"
+        android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
