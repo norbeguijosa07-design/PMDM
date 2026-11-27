@@ -8,6 +8,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 public class AdaptadorVideojuegos extends RecyclerView.Adapter<AdaptadorVideojuegos.ViewHolder> {
     // La lista de datos que va a pintar
@@ -29,9 +32,7 @@ public class AdaptadorVideojuegos extends RecyclerView.Adapter<AdaptadorVideojue
         VideoJuegos videojuegos = videojuego.get(position);
         holder.tvTitulo.setText(videojuegos.getTitulo());
         holder.tvSubtitulo.setText(videojuegos.getPlataforma());
-        holder.ivImagen.setImageResource(videojuegos.getImagen());
-
-        holder.ivImagen.setImageResource(videojuegos.getImagen());
+        Glide.with(holder.itemView).load(videojuegos.getImagen()).into(holder.ivImagen);
 
         holder.itemView.setOnClickListener(v ->
                 Toast.makeText(v.getContext(),

@@ -2,8 +2,8 @@ package com.example.listanorberto;
 
 public class VideoJuegos {private String titulo;
     private String plataforma;
-    private int imagen;
-    public VideoJuegos(String titulo, String plataforma, int imagen) {
+    private String imagen;
+    public VideoJuegos(String titulo, String plataforma, String imagen) {
         this.titulo = titulo;
         this.plataforma = plataforma;
         this.imagen = imagen;
@@ -14,7 +14,7 @@ public class VideoJuegos {private String titulo;
     public String getPlataforma() {
         return plataforma;
     }
-    public int getImagen() {
+    public String getImagen() {
         return imagen;
     }
 
